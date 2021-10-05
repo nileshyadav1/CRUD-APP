@@ -1,17 +1,17 @@
 <template>
-  <div class="dashboard">
-    <h1>Welcome to CRUD Users Project</h1>
+  <div class="users">
+    <h1>Users Page</h1>
   </div>
 </template>
-
 <script>
 export default {
-  name: "Dashboard",
-};
+  name:"Users"
+}
 </script>
 
+
 <style scoped>
-.dashboard {
+.users{
   width: 90%;
 height: 100%;
   padding: 1% 5%;
