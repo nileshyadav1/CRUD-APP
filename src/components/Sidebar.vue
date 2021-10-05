@@ -28,7 +28,8 @@ export default {
 
 <style scoped>
 .sidebar{
-    background-color:#3c4b64
+    background-color:#3c4b64;
+   
 }
 
 .title {
