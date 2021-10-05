@@ -1,35 +1,28 @@
-
-
 {
-    "users": [
-      {
-        "id": "fsm2vsgo1pr",
-        "fname": "Nilesh",
-        "lname": "Yadav",
-       
-        "phone": "8000968035",
-        "email": "nileshyadav.dev@gmail.com",
-        "status": "active"
-      },
-      {
-        "id": "gf34sezvoh6",
-        "fname": "Albus",
-        "lname": "Dumbledore",
-       
-        "phone": "8128584263",
-        "email": "professor@gmail.com",
-        "status": "active"
-      },
-      {
-        "id": "goh6sgo1pr2",
-        "fname": "Tom",
-        "lname": "Riddle",
-       
-        "phone": "8956214223",
-        "email": "avadaKadavra@gmail.com",
-        "status": "disabled"
-      }
-      
-   
-    ]
-  }
+  "users": [
+    {
+      "id": "fsm2vsgo1pr",
+      "fname": "Nilesh",
+      "lname": "Yadav",
+      "phone": "8000968035",
+      "email": "nileshyadav.dev@gmail.com",
+      "status": "active"
+    },
+    {
+      "id": "gf34sezvoh6",
+      "fname": "Albus",
+      "lname": "Dumbledore",
+      "phone": "8128584263",
+      "email": "professor@gmail.com",
+      "status": "disabled"
+    },
+    {
+      "id": "goh6sgo1pr2",
+      "fname": "Tom",
+      "lname": "Riddle",
+      "phone": "818585654",
+      "email": "avadaKadavra@gmail.com",
+      "status": "active"
+    }
+  ]
+}

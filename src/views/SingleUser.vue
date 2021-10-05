@@ -7,10 +7,8 @@
       </div>
 
       <div v-if="userData">
-      
-
         <div class="form-content">
-          <form >
+          <form>
             <div class="input-div">
               <div class="input ">
                 <label>Name</label>
@@ -18,39 +16,33 @@
               </div>
               <div class="input ">
                 <label>Last Name</label>
-                <input required type="text"  v-model="userData.lname"/>
+                <input required type="text" v-model="userData.lname" />
               </div>
             </div>
-             <div class="input-div">
+            <div class="input-div">
               <div class="input ">
                 <label>Email</label>
-                <input required type="text" v-model="userData.email"/>
+                <input required type="text" v-model="userData.email" />
               </div>
               <div class="input ">
                 <label>Contact</label>
-                <input required type="text" v-model="userData.phone"/>
+                <input required type="text" v-model="userData.phone" />
               </div>
             </div>
-             <div class="input-div">
-              
+            <div class="input-div">
               <div class="input ">
                 <label>Status</label>
-                 <select
-              required
-              type="text"
-              v-model="userData.status"
-              value="userData.status"
-             
-            >
-              <option value="active">Active</option>
-              <option value="disabled">Disabled</option>
-            </select>
+                <select required type="text" v-model="userData.status">
+                  <option value="active">Active</option>
+                  <option value="disabled">Disabled</option>
+                </select>
               </div>
             </div>
 
             <div class="save">
-
-            <button class="save-btn" type="submit" @click="SaveUpdate">Save</button>
+              <button class="save-btn" type="submit" @click="SaveUpdate">
+                Save
+              </button>
             </div>
           </form>
         </div>
@@ -86,10 +78,30 @@ export default {
       });
     },
 
-    SaveUpdate(e){
-        e.preventDefault();
-        console.log( this.userData.fname);
-    }
+    SaveUpdate(e) {
+      e.preventDefault();
+
+      const formData = {
+        fname: this.userData.fname,
+        lname: this.userData.lname,
+        phone: this.userData.phone,
+        email: this.userData.email,
+        status: this.userData.status,
+      };
+      return new Promise((resolve, reject) => {
+        axios
+          .patch(`http://localhost:3000/users/${this.ParamID}`, formData)
+          .then((response) => {
+            this.$router.push("/users");
+            resolve(response);
+            console.log("Single User Data Patch", response);
+          })
+          .catch((error) => {
+            console.log(" Error", error);
+            reject(error);
+          });
+      });
+    },
   },
 
   created() {
@@ -135,12 +147,12 @@ export default {
   background-color: #3399ff;
 }
 
-.input-div{
-    margin-bottom:100px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-   padding:0 30px;
-    height:30px;
+.input-div {
+  margin-bottom: 100px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 0 30px;
+  height: 30px;
 }
 /* .input{
      background-color: red;
@@ -153,11 +165,11 @@ export default {
 
 .input input,
 .input select {
-    margin-top:10px;
+  margin-top: 10px;
   width: 80%;
-  display:block;
+  display: block;
   background-color: #3c4b64;
-  color:#ffffff;
+  color: #ffffff;
   border-radius: 4px;
   padding: 12px 10px;
   border: none;
@@ -168,11 +180,11 @@ select:focus {
   outline: none;
 }
 
-.save{
-     padding:0 30px;
+.save {
+  padding: 0 30px;
 }
-.save .save-btn{
-     border: none;
+.save .save-btn {
+  border: none;
   border-radius: 20px;
   text-decoration: none;
   padding: 10px 20px;
